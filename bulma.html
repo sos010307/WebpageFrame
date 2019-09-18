@@ -12,9 +12,10 @@
 </head>
 <body>
 	<div id="wrap" class="hero is-fullheight">
+		<input type="checkbox" id="navck" style="display: none;">
 		<!-- .hero-head -->
 		<header class="hero-head">
-			<div class="columns is-mobile is-marginless heading has-text-weight-bold">
+			<div class="columns is-mobile is-marginless has-text-weight-bold">
 				<div class="column left">
 					<figure class="navbar-item image">
 						<a href="#"><img src="images/logo.png" style="width: 6.25rem;"></a>
@@ -29,16 +30,30 @@
 				<div class="column right">
 					<a href="#" class="navbar-item desktop">ENGLISH</a>
 					<a href="#" class="navbar-item desktop">KOREAN</a>
-					<a href="#" class="navbar-item image mobile">
-						<figure>
-						<i class="fas fa-bars" style="width: 1.5rem; height: 1.5rem;"></i>
+					<figure class="navbar-item mobile">
+						<label for="navck"><i class="fas fa-bars" style="width: 1.5rem; height: 1.5rem;"></i></label>
 					</figure>
 					</a>
 				</div>
 			</div>
+			<div class="columns is-marginless has-text-weight-bold fixed">
+				<div class="black"></div>
+				<div class="column">
+					<a href="#" class="navbar-item">ABOUT ATMAN</a>
+					<a href="#" class="navbar-item">OUR SOLUTION</a>
+					<a href="#" class="navbar-item">OUR SERVICE</a>
+					<a href="#" class="navbar-item">OUR PROJECT</a>
+					<a href="#" class="navbar-item desktop">ENGLISH</a>
+					<a href="#" class="navbar-item desktop">KOREAN</a>
+				</div>
+			</div>
 		</header>
-		<section class="hero-body">
-			<div class="sec1"></div>
+		<section class="is-marginless is-fullwidth is-paddingless columns	">
+			<div class="content sec1 column is-paddingless">
+				<div class="img part1"></div>
+				<div class="img part2"></div>
+				<!-- <div class="img part3"><img src="./images/main3.jpg" alt="main img3"></div> -->
+			</div>
 		</section>
 		<!-- /.hero-head -->
 	</div>
