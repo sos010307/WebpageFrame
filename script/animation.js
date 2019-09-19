@@ -2,20 +2,22 @@ const app = new Application();
 
 const active = new Active();
 
+var sflag, header;
+
 function Application(){
 	this.init = () => {
-		this.set();
+		this.start();
 		this.event();
 	}
-	this.event = () => {
+	this.start = () => {
+		sflag = false;
+		header = document.querySelector("header"); //이벤트 타겟 헤더
+		if(active.getScroll() >= 300)
+			active.navbar("down");
+	}
+	this.event = _ => {
 		document.addEventListener("click", function(e){app.action(e, e.type)});
 		document.addEventListener("scroll", function(e){app.action(e, e.type)});
-	}
-	this.set = () => {
-
-	}
-	this.getScroll = () => {
-		return window.scrollY;
 	}
 	this.action = (e, method) => {
 		switch(method) {
@@ -23,27 +25,30 @@ function Application(){
 				console.log(e);
 				break;
 			case "scroll":
-				active.navbar();
-				console.log(this.getScroll());
+				if(active.getScroll() >= 200 && header.offsetHeight == 100)
+					active.navbar("down");
+				else if(active.getScroll() < 200 && header.offsetHeight == 60)
+					active.navbar("up");
 				break;
 		}
 	}
-	this.test = () => {
-		console.log(1);
-	}
 }
 
-
 function Active() {
-	this.navbar = () => {
-		var scroll = app.getScroll(); //페이지의 스크롤 값을 받아옴
-		if(scroll >= 300) //스크롤이 300 이상일때, 네비게이션의 크기를 줄임
-			document.querySelector("header").style.height="auto";
-		else
-			document.querySelector("header").style.height="100px";
+	this.getScroll = _ => {
+		return window.scrollY;
+	}	
+	this.navbar = (size) => {
+		if(size == "down"){
+			header.style.height="60px";
+			header.style.background="rgba(255,255,255,1)";
+		}else if(size == "up"){
+			header.style.height="100px";
+			header.style.background="rgba(255,255,255,0.6)";
+		}
 	}
 }
 
 window.onload = function(){
-	app.init();	
+	app.init();
 }
