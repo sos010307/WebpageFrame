@@ -17,23 +17,23 @@
     line-height: 1;
 }
 
-.mobile{
-	display: none;
+.mobile   { display: none;}
+.fixed	  { position: fixed; }
+.absolute { position: absolute; }
+.relative { position: relative; }
+
+.flex{ 
+	display: flex;
+	align-items: center;
+	justify-content: space-around;  
+}
+.flex>div{ 
+	text-align: center; 
 }
 
-.fixed{
-	position: fixed;
-}
 
-.absolute{
-	position: absolute;
-}
-
-.relative{
-	position: relative;
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+	/*html{font-size: 12px}*/
 	.desktop { display: none; }
 	.mobile {  display: block; }
 }
