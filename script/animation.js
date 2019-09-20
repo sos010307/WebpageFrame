@@ -22,7 +22,7 @@ function Application(){
 	this.action = (e, method) => {
 		switch(method) {
 			case "click":
-				console.log(e);
+				console.log(e.target);
 				break;
 			case "scroll":
 				if(active.getScroll() >= 200 && header.offsetHeight == 100)
@@ -42,9 +42,11 @@ function Active() {
 		if(size == "down"){
 			header.style.height="60px";
 			header.style.background="rgba(255,255,255,1)";
+			header.children[0].children[1].style.width="65%";
 		}else if(size == "up"){
 			header.style.height="100px";
 			header.style.background="rgba(255,255,255,0.6)";
+			header.children[0].children[1].style.width="50%";
 		}
 	}
 }

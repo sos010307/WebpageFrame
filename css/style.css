@@ -1,20 +1,26 @@
 @charset "utf-8";
 /* All Devices */
+#wrap{
+	width: 100%;
+	height: 100%;
+}
 header{
 	width: 100%;
 	height: 100px;
 	position: fixed;
 	background: rgba(255,255,255,0.8);
 	z-index: 1000;
-	transition: 0.5s;
+	transition: 0.3s;
 }
 header>div{height: 100%;}
+header>.columns>.column{transition: 0.3s;}
 header .relative{
 	z-index: 9999;
 }
 header>#fixed{
 	width: 100%;
 	height: 100%;
+	/*display: none;*/
 }
 header>.fixed>.column{
 	width: 100%;
@@ -31,9 +37,9 @@ header>.fixed>.black{
 	transition: 0.5s;
 	z-index: -1;
 }
-#navck:checked ~ header .fixed{ }
-#navck:checked ~ header .fixed>.black{ background: rgba(0,0,0,0.4); }
-#navck:checked ~ header .fixed>.column{ right: 0; }
+#navck:checked ~ header #fixed{ display: block; }
+#navck:checked ~ header #fixed>.black{ background: rgba(0,0,0,0.4); }
+#navck:checked ~ header #fixed>.column{ right: 0; }
 
 section{
 	width: 100%;
@@ -42,9 +48,10 @@ section{
 section * {text-align: center;}
 section>.content{
 	width: 100%;
-	height: 500px;
+	height: auto;
 	position: relative;
 	overflow: hidden;
+	padding: 50px 0;
 }
 .content.slide{
 	height: 650px;
@@ -60,7 +67,7 @@ section>.content{
 }
 
 section>.sec1{
-	height: 400px;
+	background: rgba(225,225,225,0.3);
 }
 .sec1>.columns{
 	width: 100%;
@@ -68,24 +75,69 @@ section>.sec1{
 }
 .sec1>p{
 	font-size: 1.1em;
-	line-height: 40px;
+	margin: 30px 0;
 }
-.columns>h1{
+.sec1 .columns>h1{
 	width: 100%;
 }
-.columns>.column{
+.sec1 .columns>.column{
 	text-align: center;
 }
-.columns>.column>i{
+.sec1 .columns>.column>i{
 	width: 10rem;
 	height: 10rem;
 	line-height: 10rem;
 	margin-bottom: 20px;
 	border-radius: 30%;
-	box-shadow: 5px 5px 10px;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
 	background: rgba(160,210,255,1);
 }
-.columns>.column>p{
+.sec1 .columns>.column>p{
 	max-width: 13rem;
 	margin: auto;
+}
+
+.imgsec1>.column{
+	padding: 30px;
+}
+.imgsec>.imgbox{
+	width: 
+}
+.imgsec1>.imgbox>div{
+	width: 75%;
+	height: 25em;
+	box-shadow: 40px 40px 60px rgba(0, 0, 0, 0.15);
+}
+.ocean{background: url(../images/ocean.jpg) right / cover;}
+.desert{background: url(../images/desert.jpg) right / cover;}
+.imgsec1>.txtbox>div{
+	width: 70%;
+}
+.imgsec1>.txtbox>div{
+	padding-top: 3.5em;
+}
+.sec3{flex-direction: row-reverse;background: black;}
+.sec2 .txtbox{padding-left: 80px;}
+.sec3 .txtbox{padding-right: 80px;}
+.sec3 .txtbox *:not(div){color: white;}
+
+@media (max-width: 1024px) {
+	header .is-mobile .column:first-child{
+		justify-content: flex-start;
+	}
+	header .is-mobile .column:last-child{
+		justify-content: flex-end;
+	}
+
+@media (max-width: 768px) {
+	.imgbox>div{
+		width: 100% !important;
+		box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15) !important;
+	}
+	.sec1 .columns>.column {
+		width: 50%;
+		float: left;
+	}
+	.imgsec1 .txtbox{padding: 0 0 0 0 !important;}
+	.imgsec1 .txtbox>div{margin: 0 auto;}
 }
